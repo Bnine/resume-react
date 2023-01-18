@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import {Container, Row} from 'react-bootstrap';
 
 const Techstack = () => {
@@ -9,7 +9,7 @@ const Techstack = () => {
         <Container className={'mt-2'}></Container>
         <Container>
           <Row>
-            <iframe src={techShareUrl} title={`bongkyu's techShare`} frameborder="0" height={`1830px`}/>
+            <iframe src={techShareUrl} title={`bongkyu's techShare`} height={`1830px`}/>
           </Row>
         </Container>
     </>

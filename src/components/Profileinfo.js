@@ -29,6 +29,10 @@ const Profileinfo = (props) => {
   }, []);
 
   useEffect(() => {
+    fetchUsers();
+  }, [props.accecptedLanguage]);
+
+  useEffect(() => {
     console.log(`loading state is -> ${loading}`);
   }, [loading]);
 
@@ -38,7 +42,6 @@ const Profileinfo = (props) => {
         <Container className={'mt-5'}></Container>
         <Container>
         {
-
             !loading 
             && profileData
             &&

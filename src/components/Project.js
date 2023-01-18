@@ -45,8 +45,8 @@ const Project = (props) => {
             !loading 
             && projectData
             &&
-            projectData.map(data => (
-              <Row className={'mt-5'}>
+            projectData.map((data, index) => (
+              <Row className={'mt-5'} key={`${index}_handle`}>
                 <Row>
                   <Col xs={1}>
                     <Image src={data.projectInfo.country} 
@@ -103,15 +103,16 @@ const Project = (props) => {
                   </Col>
                   <Col md={8}>
                       {
-                        data.skills && data.skills.map(skilldata => (
-                          <>
-                          <Image src={skilldata.imagePath} 
-                            style={{
-                              width: '70px'
-                            }}
-                          />
-                          &nbsp;
-                          </>
+                        data.skills && data.skills.map((skilldata, index) => (
+                          <div key={`${index}_images_${skilldata.imageId}`}>
+                            <Image 
+                              src={skilldata.imagePath} 
+                              style={{
+                                width: '70px'
+                              }}
+                            />
+                            &nbsp;
+                          </div>
                         ))
                       }
                   </Col>
@@ -129,8 +130,8 @@ const Project = (props) => {
                   </Col>
                 </Row>
                 {
-                  data.details && data.details.map(detailData => (
-                    <>
+                  data.details && data.details.map((detailData, index) => (
+                    <div key={`${index}_details_${detailData.projectId}`}>
                     <hr className={'mt-3'}/>
                     <Row>
                       <Col>
@@ -146,7 +147,7 @@ const Project = (props) => {
                         <p className={'mt-1 mb-1 css-fix'}>{detailData.projectDetail}</p>
                       </Col>
                     </Row>
-                    </>
+                    </div>
                   ))
                 }
               </Row>

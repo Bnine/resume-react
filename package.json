@@ -8,11 +8,13 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.2.2",
     "bootstrap": "^5.2.3",
+    "i18next": "^22.4.9",
     "iframe-resizer": "^4.3.2",
     "iframe-resizer-react": "^1.1.0",
     "react": "^18.2.0",
     "react-bootstrap": "^2.7.0",
     "react-dom": "^18.2.0",
+    "react-i18next": "^12.1.4",
     "react-router-dom": "^6.6.2",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
