@@ -32,11 +32,6 @@ const Profileinfo = (props) => {
     fetchUsers();
   }, [props.accecptedLanguage]);
 
-  useEffect(() => {
-    console.log(`loading state is -> ${loading}`);
-  }, [loading]);
-
-
   return (
     <>
         <Container className={'mt-5'}></Container>

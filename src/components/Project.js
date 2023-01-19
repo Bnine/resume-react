@@ -28,25 +28,15 @@ const Project = (props) => {
     fetchData();
   }, []);
 
-  useEffect(() => {
-    console.log(`loading state is -> ${loading}`);
-  }, [loading]);
-
-
   return (
     <>
-        <Container className={'mt-2'}></Container>
         <Container>
-          <Row>
-            <h1>Projects</h1>
-          </Row>
         {
-
             !loading 
             && projectData
             &&
             projectData.map((data, index) => (
-              <Row className={'mt-5'} key={`${index}_handle`}>
+              <Row className={'mb-5'} key={`${index}_handle`}>
                 <Row>
                   <Col xs={1}>
                     <Image src={data.projectInfo.country} 
@@ -104,15 +94,14 @@ const Project = (props) => {
                   <Col md={8}>
                       {
                         data.skills && data.skills.map((skilldata, index) => (
-                          <div key={`${index}_images_${skilldata.imageId}`}>
                             <Image 
+                              className='m-1'
+                              key={`${index}_images_${skilldata.imageId}`}
                               src={skilldata.imagePath} 
                               style={{
                                 width: '70px'
                               }}
                             />
-                            &nbsp;
-                          </div>
                         ))
                       }
                   </Col>

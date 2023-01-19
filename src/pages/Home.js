@@ -9,7 +9,6 @@ import Contact from '../components/Contact';
 
 const Home = () => {
   const [accecptedLanguage, setAccecptedLanguage] = useState('ko');
-  const [defaultTab, setDefaultTab] = useState('contact');
 
   const selectedAcceptedLanguage = (settedlanguage) => {
     setAccecptedLanguage(settedlanguage);
@@ -26,7 +25,7 @@ const Home = () => {
       <Profileinfo accecptedLanguage={accecptedLanguage}/>
       <Container>
         <Tabs
-            defaultActiveKey={defaultTab}
+            defaultActiveKey="tech"
             id="uncontrolled-tab-example"
             className="mb-3"
         >

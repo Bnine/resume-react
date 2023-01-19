@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import {Container, Nav, Navbar, NavDropdown} from 'react-bootstrap';
+import React from 'react';
+import {Container, Col, Nav, Navbar, NavDropdown, Image} from 'react-bootstrap';
 
 const Header = (props) => {
 
@@ -18,10 +18,40 @@ const Header = (props) => {
           <Nav>
             <NavDropdown title="Language" id="basic-nav-dropdown">
               <NavDropdown.Item onClick={(e) => changedLanguages("ko")}>
-                한국어
+                <Col>
+                  <Image src={`https://image.tmpbnine.store/resume-japan/png/ko.png`} 
+                    style={{
+                      width: '22px',
+                      marginTop: '-3px',
+                      marginRight: '2px'
+                    }}
+                  />
+                  한국어
+                </Col>
+              </NavDropdown.Item>
+              <NavDropdown.Item onClick={() => changedLanguages("jp")}>
+                <Col>
+                  <Image src={`https://image.tmpbnine.store/resume-japan/png/jp.png`} 
+                    style={{
+                      width: '22px',
+                      marginTop: '-3px',
+                      marginRight: '2px'
+                    }}
+                  />
+                  日本語
+                </Col>
               </NavDropdown.Item>
               <NavDropdown.Item onClick={() => changedLanguages("en")}>
-                English
+                <Col>
+                  <Image src={`https://image.tmpbnine.store/resume-japan/png/us.png`} 
+                    style={{
+                      width: '22px',
+                      marginTop: '-3px',
+                      marginRight: '2px'
+                    }}
+                  />
+                  English
+                </Col>
               </NavDropdown.Item>
             </NavDropdown>
           </Nav>
