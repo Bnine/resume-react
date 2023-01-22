@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Container, Form, Button } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 import axios from 'axios';
+import BlockUi from 'react-block-ui';
+import 'react-block-ui/style.css';
 
 const Contact = (props) => {
   const { t } = useTranslation(['page']);
@@ -10,6 +12,7 @@ const Contact = (props) => {
   const [subject, setSubject] = useState('');
   const [contents, setContents] = useState('');
   const [isReadyToSend, setIsReadyToSend] = useState(false);
+  const [isBlocking, setIsBlocking] = useState(false);
 
   const checkValidation = () => {
     if (!email) {
@@ -52,7 +55,11 @@ const Contact = (props) => {
       return false;
     }
 
-    setIsReadyToSend(true);
+    if (window.confirm(t('page:confirmSend'))) {
+      setIsReadyToSend(true);
+    } else {
+      return false;
+    }
   };
 
   const sendEmail = async () => {
@@ -60,6 +67,7 @@ const Contact = (props) => {
       if (!isReadyToSend) {
         return false;
       }
+      setIsBlocking(true);
       setIsReadyToSend(false);
 
       const response = await axios.post(
@@ -77,12 +85,14 @@ const Contact = (props) => {
         }
       );
       console.log(response);
+      setIsBlocking(false);
       if (response.status === 200) {
         alert(t('page:sendCompleted'));
         return false;
       }
     } catch (e) {
       setIsReadyToSend(false);
+      setIsBlocking(false);
       console.log(e);
       console.log(e.response);
       if (e.response.status === 400 && !e.response.data.data) {
@@ -115,61 +125,63 @@ const Contact = (props) => {
 
   return (
     <>
-      <Container className={'mt-2'} />
-      <Container>
-        <Form>
-          <Form.Group className="mb-3" controlId="email">
-            <Form.Label>{t('page:emailAddress')}</Form.Label>
-            <Form.Control
-              type="email"
-              placeholder="example@example.com"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="name">
-            <Form.Label>{t('page:name')}</Form.Label>
-            <Form.Control
-              type="text"
-              placeholder={t('page:inputName')}
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-            />
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="subject">
-            <Form.Label>{t('page:subject')}</Form.Label>
-            <Form.Control
-              type="text"
-              placeholder={t('page:inputSubject')}
-              value={subject}
-              onChange={(e) => setSubject(e.target.value)}
-            />
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="contents">
-            <Form.Label>{t('page:contents')}</Form.Label>
-            <Form.Control
-              as="textarea"
-              rows={5}
-              value={contents}
-              onChange={(e) => setContents(e.target.value)}
-            />
-          </Form.Group>
-        </Form>
-      </Container>
-      <Container className={'mt-2 mb-3'}>
-        <div className={'text-center'}>
-          <Button
-            variant="primary"
-            size="lg"
-            onClick={(e) => checkValidation()}
-          >
-            {t('page:send')}
-          </Button>{' '}
-          <Button variant="secondary" size="lg" onClick={(e) => resetEmail()}>
-            {t('page:reset')}
-          </Button>
-        </div>
-      </Container>
+      <BlockUi tag="div" blocking={isBlocking}>
+        <Container className={'mt-2'} />
+        <Container>
+          <Form>
+            <Form.Group className="mb-3" controlId="email">
+              <Form.Label>{t('page:emailAddress')}</Form.Label>
+              <Form.Control
+                type="email"
+                placeholder="example@example.com"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="name">
+              <Form.Label>{t('page:name')}</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder={t('page:inputName')}
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="subject">
+              <Form.Label>{t('page:subject')}</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder={t('page:inputSubject')}
+                value={subject}
+                onChange={(e) => setSubject(e.target.value)}
+              />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="contents">
+              <Form.Label>{t('page:contents')}</Form.Label>
+              <Form.Control
+                as="textarea"
+                rows={5}
+                value={contents}
+                onChange={(e) => setContents(e.target.value)}
+              />
+            </Form.Group>
+          </Form>
+        </Container>
+        <Container className={'mt-2 mb-3'}>
+          <div className={'text-center'}>
+            <Button
+              variant="primary"
+              size="lg"
+              onClick={(e) => checkValidation()}
+            >
+              {t('page:send')}
+            </Button>{' '}
+            <Button variant="secondary" size="lg" onClick={(e) => resetEmail()}>
+              {t('page:reset')}
+            </Button>
+          </div>
+        </Container>
+      </BlockUi>
     </>
   );
 };

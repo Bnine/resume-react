@@ -11,6 +11,7 @@
   "reset": "消す",
   "sendCompleted": "メールを送信しました。",
   "confirmReset": "本当に消しますか",
+  "confirmSend": "メールを送りますか?",
 
   "APIAREA": "",
   "apiResponse500": "要請が失敗しました.",

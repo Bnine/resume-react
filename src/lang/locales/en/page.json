@@ -11,6 +11,7 @@
   "reset": "reset",
   "sendCompleted": "Sending Email was successful",
   "confirmReset": "Do you really want to reset text?",
+  "confirmSend": "Do you really want to send Email?",
 
   "APIAREA": "",
   "apiResponse500": "Failed request.\nplease re-try later.",
