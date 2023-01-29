@@ -182,7 +182,7 @@ const Contact = (props) => {
             </Button>
           </div>
         </Container>
-        <ScrollToTop smooth/>
+        <ScrollToTop style={{display: "flex", justifyContent: "center", alignItems:"center"}} smooth/>
       </BlockUi>
     </>
   );

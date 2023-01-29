@@ -18,7 +18,7 @@ const Techstack = () => {
           />
         </Row>
       </Container>
-      <ScrollToTop smooth/>
+      <ScrollToTop style={{display: "flex", justifyContent: "center", alignItems:"center"}} smooth/>
     </>
   );
 };

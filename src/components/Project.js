@@ -162,7 +162,7 @@ const Project = (props) => {
             </Row>
           ))}
       </Container>
-      <ScrollToTop smooth/>
+      <ScrollToTop style={{display: "flex", justifyContent: "center", alignItems:"center"}} smooth/>
     </>
   );
 };
