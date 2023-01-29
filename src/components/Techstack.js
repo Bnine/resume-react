@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container, Row } from 'react-bootstrap';
+import ScrollToTop from "react-scroll-to-top";
 
 const Techstack = () => {
   const techShareUrl =
@@ -17,6 +18,7 @@ const Techstack = () => {
           />
         </Row>
       </Container>
+      <ScrollToTop smooth/>
     </>
   );
 };

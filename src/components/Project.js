@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Image } from 'react-bootstrap';
 import axios from 'axios';
+import ScrollToTop from "react-scroll-to-top";
 
 const Project = (props) => {
   const [projectData, setProjectData] = useState(null);
@@ -161,6 +162,7 @@ const Project = (props) => {
             </Row>
           ))}
       </Container>
+      <ScrollToTop smooth/>
     </>
   );
 };

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Form, Button } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
+import ScrollToTop from "react-scroll-to-top";
 import axios from 'axios';
 import BlockUi from 'react-block-ui';
 import 'react-block-ui/style.css';
@@ -181,6 +182,7 @@ const Contact = (props) => {
             </Button>
           </div>
         </Container>
+        <ScrollToTop smooth/>
       </BlockUi>
     </>
   );
