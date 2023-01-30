@@ -3,8 +3,7 @@ import { Container, Row } from 'react-bootstrap';
 import ScrollToTop from "react-scroll-to-top";
 
 const Techstack = () => {
-  const techShareUrl =
-    'https://embed.stackshare.io/stacks/embed/244d0db4c3a4a23d46a7d07a973dc9';
+  const techShareUrl = 'https://embed.stackshare.io/stacks/embed/d01b251ff300cf5fb7d870c6fc5974';
 
   return (
     <>

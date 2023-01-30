@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Row, Col, Image } from 'react-bootstrap';
+import { Container, Row, Col, Image, Stack } from 'react-bootstrap';
 import axios from 'axios';
 
 const Profileinfo = (props) => {
   const [profileData, setProfileData] = useState(null);
   const [loading, setLoading] = useState(true);
+  const gitImageUrl = "https://image.tmpbnine.store/resume-japan/png/github-logo.png";
 
   const fetchUsers = async () => {
     try {
@@ -40,7 +41,10 @@ const Profileinfo = (props) => {
             </Col>
             <Col md={8}>
               <Row>
+              <Stack direction="horizontal" gap={1}>
+                <a href='https://github.com/Bnine' target={'_blank'} rel="noopener noreferrer"><Image src={gitImageUrl} style={{marginTop: '-10px'}} /></a>
                 <h1>{profileData.name}</h1>
+              </Stack>
               </Row>
               <hr />
               <Row>
@@ -52,7 +56,10 @@ const Profileinfo = (props) => {
               </Row>
               <hr />
               <Row>
-                <h4>{profileData.birth}</h4>
+              <Stack direction="horizontal" gap={1}>
+                <a href='https://github.com/Bnine/resume-2nd' target={'_blank'} rel="noopener noreferrer"><Image src={gitImageUrl} /></a>
+                <p style={{margin: 'auto', marginLeft: '0px'}}><b>[For Portfolio API]</b></p>
+              </Stack>
               </Row>
               <hr />
               <Row>
