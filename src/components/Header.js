@@ -48,6 +48,7 @@ const Header = (props) => {
                   日本語
                 </Col>
               </NavDropdown.Item>
+              {/*
               <NavDropdown.Item onClick={() => changedLanguages('en')}>
                 <Col>
                   <Image
@@ -61,6 +62,7 @@ const Header = (props) => {
                   English
                 </Col>
               </NavDropdown.Item>
+              */}
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>

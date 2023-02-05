@@ -63,14 +63,7 @@ const Profileinfo = (props) => {
               </Row>
               <hr />
               <Row>
-                <p
-                  className={'css-fix'}
-                  style={{
-                    fontSize: '30px',
-                  }}
-                >
-                  <b>{profileData.comment}</b>
-                </p>
+                <div dangerouslySetInnerHTML={{__html:profileData.comment}}></div>
               </Row>
             </Col>
           </Row>

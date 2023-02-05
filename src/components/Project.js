@@ -152,9 +152,7 @@ const Project = (props) => {
                     </Row>
                     <Row>
                       <Col>
-                        <p className={'mt-1 mb-1 css-fix'}>
-                          {detailData.projectDetail}
-                        </p>
+                        <div dangerouslySetInnerHTML={{__html:detailData.projectDetail}}></div>
                       </Col>
                     </Row>
                   </div>
